@@ -1,0 +1,404 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  cursor: url("http://www.rw-designer.com/cursor-view/109048.png") ,auto;
+}
+
+.image-container {
+  display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 30px;
+}
+
+.image {
+  flex: 0 0 auto; /* Allow images to maintain their original width */
+  margin-right: 100px;
+  color: whitesmoke;
+  font-size: 35px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.image-name{
+  color: whitesmoke;
+  margin-bottom: 105px;
+  font-size: 25px;
+  font-family:'Bebas Neue', sans-serif;;
+  text-align: center;
+}
+
+.image-list {
+  display: flex; /* Display images horizontally */
+  align-items: center; /* Center images vertically */
+}
+
+.image-list img {
+  width: 100%;
+    object-fit: contain;
+    max-height: 250px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.image-list img:hover + .image-name {
+  text-decoration: underline; 
+  text-underline-offset: 30px; 
+  color: whitesmoke; 
+}
+
+.hover-container {
+  position: relative;
+  transition: transform 0.4s ease; 
+}
+
+.hover-container:hover {
+ transform: scale(1.08);
+}
+
+img.img {
+  max-width: 100%;
+}
+.image-container::-webkit-scrollbar {
+display: none;
+}
+
+.ageLimit {
+  color: red;
+  font-weight: bold;
+  margin-left: 5px; 
+}
+.results{
+  margin-left: 34px;
+  color: aliceblue;
+  font-size: xx-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+
+/* Styles for the slider and its container */
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Styles for each slide */
+.slide {
+  width: 100%; /* Adjust the width of each slide */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Styles for the video elements */
+.banner-video {
+  width: 100%;
+  max-height: 85%;
+  object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+/* Optionally, you can style the controls of the video */
+.banner-video::-webkit-media-controls {
+  background-color: rgba(0, 0, 0, 0.236); /* Example background color for controls */
+  color: white; /* Example color for control icons */
+}
+.next-button {
+  right: 5px;
+  position: absolute;
+  width: 3%;
+  height: fit-content;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none; /* Adjust button background */
+  color: black; /* Adjust button color */
+  border: none;
+  cursor: pointer;
+  
+  font-size: 35px;
+  padding: 5px;
+}
+
+.prev-button {
+  left: 10px;
+  position: absolute;
+  top: 50%;
+  width: 3%;
+  transform: translateY(-50%);
+  background: transparent; /* Adjust button background */
+  color: black; /* Adjust button color */
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 35px;
+  padding: 5px;
+}
+
+
+.banner_contents{
+  margin-left: 30px;
+  padding-top: 140px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 550px;
+  margin-top: -9%;
+}
+.search-bar{
+  width: 100% ;
+  height: 150%;
+  max-width: 500px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px,20px;   
+  backdrop-filter: blur(5px) saturate(190);
+}
+.search-bar input{
+  background: transparent;
+  flex: 1;
+  border: 0%; 
+  outline: black;
+  padding: 24px,20px;
+  font-size: 22px;
+  color: orange ;
+  cursor: grab;
+}
+::placeholder{
+  color: orange;
+  font-family: "Courier New", monospace;
+}
+.search-bar button img{
+  width: 75px;
+  height: max-content;
+  margin-top: 15%;
+  margin-left: 1%;
+}
+.search-bar button{
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: 100px;
+  background: none;
+  cursor: pointer;
+}
+.banner--fadeBottom{
+  margin-top: 145px;
+  height: 7.4rm;
+  background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
+}
+.nav_logo{
+  width: 300px;
+  object-fit: contain;
+}
+
+.nav_avatar{
+  width: 120px;
+  object-fit: contain;
+  margin-right: 35px;
+}
+
+.nav{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  z-index:1;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.nav-links-container {
+  text-align: center;
+  margin-right: 55px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 125px;
+}
+
+.nav-links li {
+  display: inline-block;
+    margin-right: 30px; 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: orange;
+}
+
+.nav_black{
+  background-color: #111;
+}
+
+/* Adjust the width and positioning as needed */
+.sort{
+  margin-bottom: 70px;
+ margin-left: 300px;
+  padding: 10px; /* Add padding to the container */
+  background-color: black; /* Background color for visibility */
+  display: flex;
+  align-items: center; 
+}
+
+#sortBy{
+  background-color: black;
+  color: orange;
+  border: none;
+  cursor: crosshair;
+}
+
+.label-container{
+  color: orange;
+}
+
+.input-container {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+}
+
+.sort-image{
+width: 50px;
+height: auto;
+margin-right: 10px;
+animation: moveUpDown 2s ease-in-out infinite; /* Define the animation */
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-30px); /* Mid-point position (upward) */
+  }
+  100% {
+    transform: translateY(0); /* End position (back to original) */
+  }
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: black;
+  color: rgb(231, 127, 16);
+  padding: 15px;
+  margin-top: 35px;
+  margin-bottom: 150px;
+  margin-left: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 99%;
+  height: 40%;
+}
+
+#preloader {
+  background-color: black;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#content {
+display: none;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  animation-name: modalopen;
+  animation-duration: 0.4s;
+}
+
+/* Add animation for modal opening */
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+/* Close button for the modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.invisible{
+visibility: hidden;
+display: none;
+}
+/* Style for the image description pop-up */
+.image-description {
+  
+  font-size: 16px; /* Set font size to 15 pixels */
+  line-height: 1.6; /* Set line height */
+  font-family: 'Netflix Sans', Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white; /* Text color */
+}
+
+/* Style for the link */
+.image-description a {
+  color: #fcd93a; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Hover style for the link */
+.image-description a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('path-to-your-font-file.ttf') format('truetype');
+  /* Add additional font formats if necessary (e.g., woff, woff2, etc.) */
+}
