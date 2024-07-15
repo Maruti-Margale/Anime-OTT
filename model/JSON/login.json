@@ -1,0 +1,30 @@
+[
+  { 
+    "username": "maruti", 
+    "password": "margale@" 
+  },
+  { 
+    "username": "nikhil", 
+    "password": "goudelar!" 
+  },
+  { 
+    "username": "rushikesh", 
+    "password": "sahane." 
+  },
+  { 
+    "username": "aditya", 
+    "password": "chavan$" 
+  },
+  { 
+    "username": "karan", 
+    "password": "mailage#" 
+  },
+  { 
+    "username": "shantanu", 
+    "password": "gaikwad&" 
+  },
+  { 
+    "username": "rupesh", 
+    "password": "sahane" 
+  }
+]
