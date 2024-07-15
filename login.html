@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <!-- Set the title of the page -->
+    <title>AngularJS Login Page</title>
+    
+    <!-- Include AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <!-- Include the login controller script -->
+    <script src="controller/login.js"></script>
+    
+    <!-- Link to the login stylesheet -->
+    <link rel="stylesheet" href="/views/CSS/login.css"/>
+
+  <!-- Link to additional CSS for Doodle Background -->  
+    <script src="https://unpkg.com/css-doodle"></script>
+    
+</head>
+
+<body ng-controller="loginController">
+    <!-- CSS Doodle code for login background -->
+    <div class="background-container">
+        <css-doodle>
+            --color: #FF8C00, #FF8C00, #FFFF00, #FFFAFA;
+          
+            @grid: 30x1 / 100vw 100vh / #000000; 
+            
+            :container {
+              perspective: 30vmin;
+              --deg: @p(-180deg, 180deg);
+            }
+            
+            :after, :before {
+              content: '';
+              background: @p(--color); 
+              @place: @r(100%) @r(100%);
+              @size: @r(6px);
+              @shape: circle;
+            }
+          
+            @place: center;
+            @size: 18vmin; 
+          
+            
+            background: @m100(
+              radial-gradient(@p(--color) 50%, transparent 0) 
+              @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+              no-repeat
+            );
+          
+            will-change: transform, opacity;
+            animation: scale-up 12s linear infinite;
+            animation-delay: calc(-12s / @I * @i);
+          
+            @keyframes scale-up {
+              0%, 95.01%, 100% {
+                transform: translateZ(0) rotate(0);
+                opacity: 0;
+              }
+              10% { 
+                opacity: 1; 
+              }
+              95% {
+                transform: 
+                  translateZ(35vmin) rotateZ(var(--deg));
+              }
+            }
+          </css-doodle>
+    </div>
+
+    <!-- Login Box Container -->
+    <div class="login-box">
+        <!-- Display login error message when 'message' is true -->
+        <div style="margin-bottom: 15px;"             class="message" ng-show="message">Login failed. Please check your credentials.</div>
+       
+        <h2>Login</h2>
+        <!-- User Login Form -->
+        <form name="userForm" novalidate>
+            <!-- User Name Input -->
+            <div class="user-box">
+                <label for="username"></label>
+                <input type="text" name="username" ng-model="user.username" required placeholder="User name" required><br>
+            </div>
+            <!-- Validation message for required User Name -->
+            <div class="message" ng-show="userForm.username.$touched && userForm.username.$error.required">
+                Name is required.
+            </div>
+            
+            <div class="user-box password-container">
+                <label for="password"></label>
+                <input type="password" id="passwordInput" name="password" ng-model="user.password" required placeholder="Password" required>
+                <!-- Show Password Button -->
+                <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="eye-icon">
+                        <path fill="#D3D3D3" d="M12,6c-3.1,0-5.9,1.9-7,4.8c1.1,2.8,3.9,4.8,7,4.8s5.9-1.9,7-4.8C17.9,7.9,15.1,6,12,6z M12,14c-1.9,0-3.5-1.5-3.5-3.5 S10.1,7,12,7s3.5,1.5,3.5,3.5S13.9,14,12,14z M12,10c-0.8,0-1.5,0.7-1.5,1.5S11.2,13,12,13s1.5-0.7,1.5-1.5S12.8,10,12,10z"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Validation message for required Password -->
+            <div class="message" ng-show="userForm.password.$touched && userForm.password.$error.required">
+                Password is required.
+            </div>
+       
+            <!-- Login Button -->
+            <a ng-disabled="userForm.$invalid" ng-click="login()" class="a">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Login
+            </a>  
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+  
+   <!-- Metadata -->
+  <meta charset="UTF-8">
+  <title>I LOVE ANIME</title>
+  
+  <!-- Load AngularJS and other scripts -->
+  <script src="ajax.googleapis.com_ajax_libs_angularjs_1.8.2_angular.min.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="filters/imagefilter.js"></script>
+  <script src="directive/directive.js"></script>
+  
+  <script src="/controller/home.js"></script>
+  <script src="/controller/About.js"></script>
+  <script src="/controller/Contacts.js"></script>
+  <script src="/controller/plan.js"></script>
+
+ <!-- Load CSS stylesheets -->
+  <link rel="stylesheet" href="/views/CSS/style.css">
+  <link rel="stylesheet" href="/views/CSS/spa.css">
+  <link rel="stylesheet" href="/views/CSS/profile.css">
+  <link rel="stylesheet " href="/views/CSS/plan.css">
+</head>
+<body ng-controller="MainController">
+
+  <!-- Preloader -->
+  <div id="preloader" ng-show="isLoading">
+    <img src="/images/mainimages/loader.gif">
+</div>
+<div id="content" ng-hide="isLoading">
+   <!-- Content -->
+</div>
+
+<!-- Navigation Bar -->
+<div class="nav" id="nav"  ng-class="{'nav_black': isScrolled}">
+    <img src="/images/mainimages/404151-removebg-preview.png" alt="" class="nav_logo" />
+    <div class="nav-links-container">
+       <ul class="nav-links">
+        <li><a href="#!/">Home</a></li>
+        <li><a href="#!/about">About</a></li>
+        <li><a href="#!/contact">Feedback</a></li>
+        <li><a href="#!/Subscription">Subscription</a></li>
+      </ul>
+      <div ng-view></div>
+        </div> 
+  </div>
+
+   <!-- Banner Section -->
+   <div class="slider">
+    <div class="slider-container">
+      <div class="slide">
+        <video class="banner-video" controls>
+          <source src="/images/mainimages/[4K] Naruto vs Sasuke [AMV_Edit] - (Beggin').mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="slide">
+        <video class="banner-video" controls>
+          <source src="/images/mainimages/x2mate.com-This is 4K Anime _ Garden Of Words _ Beauty Of 4k Anime-(1080p).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="slide">
+        <video class="banner-video" controls>
+          <source src="/images/mainimages/Y2meta.app-[4K] The beauty of One Piece - AMV_Edit (hotline bling)-(1080p60).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+  <button class="prev-button">&#8672;</button>
+  <button class="next-button">&#8674;</button>
+  
+  <div class="banner_contents">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search Anime....." ng-model="searchText" name="Anime">
+      <button type="submit"><img src="/images/mainimages/search-bar logo.png"></button>
+    </div>
+  
+    <!-- Sorting Options -->
+    <anime-sort ng-model="sortFilter"></anime-sort>
+    <!-- Custom Directive -->
+  </div>
+  
+    <!-- Profile Section -->
+     <div >
+      <h1 ng-click="profile()" style="color: darkgoldenrod;"><img src="images/profile/637441_avatar_female_lady_portrait_profile_icon.png" height="50" width="50"></h1>
+     <div class="profile-container">
+     <div class="user-profile" ng-show="showProfile">
+        <div class="profile-picture" >
+         <img ng-src="{{ userProfile.picture }}" alt="Profile Picture">
+        </div>
+        <div class="profile-details">
+            <h1>{{ userProfile.name }}</h1>
+             <p style="color: aqua;">{{ userProfile.id }}</p>
+         </div>
+      </div>
+    </div>
+ </div>
+ 
+    <div class="banner--fadeBottom"></div>  
+  </div>
+
+<!-- Search Results Section -->
+  <div class="results" ng-show="searchText">
+    Search results for : "{{ searchText }}"
+  </div>
+
+    <!-- Iterate through each folder and create a new row for each -->
+    <div class="image-container"  ng-repeat="item in items | filter:{title: sortFilter}">
+      
+       <!-- Display the anime title and age limit -->
+      <div class="image">
+        <div ng-hide="searchText">{{ item.title }}   
+            <!-- Apply the 'ageLimit' class conditionally -->
+          <span class="ageLimit" ng-class="{ 'ageLimit': item.ageLimit }">{{ item.ageLimit }}</span>
+        </div><br>
+
+        <div class="image-list">
+            <!-- Loop through and display each image title -->
+          <div class="image-title" ng-repeat="image in item.images | imageTitleFilter:searchText">
+
+            <div class="hover-container">
+                <!-- Display the image with title and enable click to view description -->
+            <img ng-src="{{ image.imageUrl }}" alt="" 
+            title="{{ image.description }}" 
+            ng-click="viewDescription(image)"
+            />
+            
+              <!-- Display the title -->
+            <div class="image-name">{{ image.imageTitle }}</div>
+
+            <!-- Description Section -->
+            <div class="image-description"  ng-show="image.showDescription">
+                  <!-- Display additional details -->
+                  Japanese: {{image.Japanese}}<br>
+               description: {{ image.description }}<br>
+               <span class="invisible">desc</span>{{image.desc}}<br>
+                  malScore: {{image.malScore}}<br>
+                     Aired: {{image.Aired}}<br>
+                    Status: {{image.Status}}<br> 
+                 Producers: {{image.Producers}}<br>
+                Watch Here: <a href="{{image.Trailer}}">{{image.Trailer}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
