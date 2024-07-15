@@ -1,0 +1,36 @@
+<div class="container-contact">
+    <!-- Display the title dynamically using AngularJS -->
+    <h2>{{title}}</h2>
+        <table class="data"> 
+            <tr>
+                <!-- Display an inquiry message with aqua color -->
+                <td colspan="5">
+                    <p style="color: aqua;"><h4>Please submit your enquiry using the form below and we will get in touch with you shortly<br>for contacting us use this email :   animegojo@gmail.com</h4></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- Input field for the subject with a placeholder -->
+                    <input type="text" style="color: aliceblue;box-sizing: content-box;" ng-model="info2" placeholder="Subject" class="form-control" my-custom-validation required>
+                    <!-- Display a message below the button with blue color -->
+                    <p style="color: rgb(21, 148, 211); font-size: 15px;" align="center">{{displayedStatement}}</p>
+                    <!-- Display the error message in red when subject is not filled -->
+                    <span class="error-message" ng-show="myForm.info2.$dirty && myForm.info2.$touched && myForm.info2.$error.customValidation">Please fill out the Subject field.</span>
+                    <br>
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td>
+                    <textarea placeholder="Message" ng-model="info3" style="color: aliceblue;" class="form-control" cols="35" rows="5"></textarea>
+                  </td>
+                  <td>&nbsp;&nbsp;</td>
+                  <td>
+                    <button class="button-submit" ng-click="displayStatement()">Send</button>
+                   
+                    <button class="button-submit1" ng-click="reset()">Reset</button>
+                  </td>
+            </tr>
+        </table>
+    </form>
+  </div>
+
+ 

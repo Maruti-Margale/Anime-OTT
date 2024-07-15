@@ -1,0 +1,78 @@
+
+    <head>
+      <title>Anime Subscription Packages</title>
+    </head>
+    <div class="plan_contain">
+    <div ng-show="submitMessage" class="flag" >Hey There!
+      <br>
+      Thank You For Purchasing The Monthly Subscription!!
+      <br><br>
+      We are happy to have you join our online community!!!
+      <br>
+       We appreciate your visit and are here to make it pleasant and memorable.
+      <br>
+      If you have any questions or need assistance, don’t hesitate to drop us a message. Our team is always here to help. Stay tuned for exciting content and surprises! Let’s make this journey together.
+      <br> 
+      <br>
+      Best wishes!!
+    </div>
+    <div class="form">
+      <form ng-show="packageForm">
+        <div class="plan">
+        <p ng-show="s">Standard</p>
+        <p ng-show="b">Basic</p>
+        <p ng-show="p">Premium</p>
+      </div>
+      <div class="form-group">Plan For:</div>
+       <select required class="plan-field" >
+         <option value="1" selected>1 Month</option>
+         <option value="2">2 Month</option>
+         <option value="3">3 Month</option>
+         <option value="4">4 Month</option>
+       </select>
+        <br>
+        <div class="form-group">
+          <label for="cardNumber">Card Number:</label>
+          <input class="form-field" type="text" id="cardNumber" ng-model="cardDetails.cardNumber" required>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input class="form-field" type="text" id="cvv" ng-model="cardDetails.cvv" maxlength="3"  required>
+        </div>
+        <br>
+        <div class="form-group">Today's Date:
+        <input class="date-field" type="date" required></input>
+        </div>
+        <br><br>
+        <input class="button-field"  type="submit" value="submit"  ng-click="submitPack()"></button>        <input class="button-field"  type="reset" value="cancel" ng-click="cancelPack()"></input>
+      </form>
+    </div>
+    <div>
+    <div class="subscription-container" ng-hide="pack">
+        
+      <!-- Use ng-repeat to iterate through subscriptionPackages array -->
+      <div class="subscription-package" ng-repeat="package in subscriptionPackages">
+        
+        <!-- Display the subscription package title -->
+        <div class="package-title">{{ package.subscription }}</div>
+        
+        <!-- Display the subscription package price -->
+        <div class="package-price">{{ package.price }}</div>
+        
+        <!-- Display the subscription package features as a list -->
+        <div class="package-features">
+          <ul>
+            <!-- Use ng-repeat to iterate through features array -->
+            <li ng-repeat="feature in package.features">{{ feature }}</li>
+          </ul>
+        </div>
+        <!-- Button to select the subscription package -->
+        <button ng-click="selectPackage(package)">Select</button>
+      </div>
+    </div>
+  </div>
+</div>  
+ 
+  
+  
